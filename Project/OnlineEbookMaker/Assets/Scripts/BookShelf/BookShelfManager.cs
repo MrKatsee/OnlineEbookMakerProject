@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Controller
@@ -59,7 +60,8 @@ public class BookShelfManager : MonoBehaviour
 
     public void OpenBook(Book book)
     {
-        //todo : Open Book
+        BookManager.Instance.LoadBook(book.id);
+        SceneManager.LoadSceneAsync("Book");
     }
 
     public void RemoveBook(Book book)

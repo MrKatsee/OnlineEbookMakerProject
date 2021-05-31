@@ -21,12 +21,11 @@ public class UI_Book : MonoBehaviour {
     private void Start() {
         refBook = BookManager.Instance.currentBookData;
 
+        inputField.text = refBook.textData;
         inputField.onValueChanged.AddListener((str) => { isSavable = true; refBook.SetData(inputField.text); });
 
         saveBtn.onClick.AddListener(OnSaveBtnClicked);
         exitBtn.onClick.AddListener(OnExitBtnClicked);
-
-        inputField.text = refBook.textData;
     }
 
     private void OnSaveBtnClicked() {

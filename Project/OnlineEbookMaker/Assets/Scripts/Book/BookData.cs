@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BookData {
-    private int _bookID;
-    public int bookID { get { return _bookID; } }
+    private string _bookID;
+    public string bookID { get { return _bookID; } }
 
     private string _textData;
     public string textData { get { return _textData; } }
@@ -27,7 +27,7 @@ public class BookData {
     #endregion
 
     #region Create
-    public static BookData Create(int id, string data) {
+    public static BookData Create(string id, string data) {
         BookData newBook = new BookData();
         newBook._bookID = id;
         newBook.Deserialize(data);
