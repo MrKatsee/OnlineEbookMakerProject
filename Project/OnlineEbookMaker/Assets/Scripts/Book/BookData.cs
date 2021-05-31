@@ -10,6 +10,10 @@ public class BookData {
     private string _textData;
     public string textData { get { return _textData; } }
 
+    public void SetData(string data) {
+        _textData = data;
+    }
+
     #region Serializer
     public string Serialize() {
         //현재는 data == textData지만, BookData가 담아야 하는 정보가 많아지는 경우를 고려함

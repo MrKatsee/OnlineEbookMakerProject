@@ -11,11 +11,14 @@ public class BookManager : MonoBehaviour {
         }
     }
 
-    private BookData currentBookData;
+    private BookData _currentBookData;
+    public BookData currentBookData { get { return _currentBookData; } }
 
     public void LoadBook(int id) {
+        _currentBookData = BookData.Create(id, PlayerPrefs.GetString(id.ToString()));
     }
 
     public void SaveBook() {
+        PlayerPrefs.SetString(_currentBookData.bookID.ToString(), _currentBookData.Serialize());
     }
 }
