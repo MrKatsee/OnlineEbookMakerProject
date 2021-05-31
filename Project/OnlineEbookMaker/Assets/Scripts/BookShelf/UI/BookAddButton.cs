@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BookAddButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Button _button;
+    [SerializeField] private BookIdField _bookIdField;
+    private void Awake()
     {
-        
+        _button.onClick.AddListener(DrawBookIdField);
     }
 
-    // Update is called once per frame
-    void Update()
+    void DrawBookIdField()
     {
-        
+        _bookIdField.gameObject.SetActive(true);
     }
 }

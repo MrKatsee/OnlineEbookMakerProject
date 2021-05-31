@@ -8,8 +8,9 @@ public class Viewer : MonoBehaviour
 {
     public static Viewer Instance { get; private set; }
     [SerializeField] GameObject _bookPrefab;
-    [SerializeField] Transform _bookShelfTransform;
-    
+    [SerializeField] Transform _bookTray;
+    [SerializeField] ErrorUI errorUI;
+
     private void Awake()
     {
         SetSingleTon();
@@ -23,19 +24,14 @@ public class Viewer : MonoBehaviour
     }
 
 
-    public void DrawBook(string title)
+    public void DrawBook(Book book)
     {
-        var bookUI = Instantiate(_bookPrefab, _bookShelfTransform).GetComponent<BookUIObject>();
-        bookUI.SetTitle(title);
+        var bookUI = Instantiate(_bookPrefab, _bookTray).GetComponent<BookUIObject>();
+        bookUI.SetBook(book);
     }
-
-    public void DrawWarning(Action callBack)
+    public void DrawError(string errorMsg)
     {
-        
-    }
-
-    public void DrawError()
-    {
-        
+        errorUI.SetMsg(errorMsg);
+        errorUI.PlayError();
     }
 }
