@@ -14,10 +14,8 @@ public class BookManager : MonoBehaviour {
     private BookData currentBookData;
 
     public void LoadBook(int id) {
-
     }
 
     public void SaveBook() {
-        
     }
 }
